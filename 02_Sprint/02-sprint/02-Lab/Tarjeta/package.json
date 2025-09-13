@@ -1,0 +1,15 @@
+{
+  "name": "tarjeta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@gonztd/utils": "^1.0.0"
+  }
+}

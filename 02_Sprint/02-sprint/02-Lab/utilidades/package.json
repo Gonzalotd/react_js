@@ -1,0 +1,18 @@
+{
+  "name": "@gonztd/utils",
+  "version": "1.0.0",
+  "description": "Mi primer paquete",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "publish:npm": "npm publish --access public"
+  },
+  "eslintConfig": {
+    "extends": "node_modules/standard/eslintrc.json"
+  },
+  "author": "Gonz",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}
