@@ -1,0 +1,21 @@
+{
+  "name": "@gonztd/calculadora",
+  "version": "1.0.0",
+  "description": "Funcionalidades de una calculadora",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "publish:npm": "npm publish --access public"
+  },
+  "eslintConfig": {
+    "extends": "node_modules/standard/eslintrc.json"
+  },
+  "keywords": [
+    "Math"
+  ],
+  "author": "GonzaloTD",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}

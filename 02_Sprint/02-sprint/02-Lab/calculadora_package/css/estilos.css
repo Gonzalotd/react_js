@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calculadora {
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin: 30px auto;
+    padding: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.show {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.589);
+    border-radius: 4px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.operations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.rectangles {
+    color: black;
+    background-color: rgba(128, 128, 128, 0.607);
+    border-radius: 4px;
+    padding: 5px 10px;
+    width: 22%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 74%;
+    gap: 13px;
+    justify-content: space-between;
+}
+
+.number {
+    width: 29%;
+    background-color: rgba(149, 146, 146, 0.316);
+}
+
+.signoEqual {
+    background-color: rgba(0, 157, 255, 0.682);
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
