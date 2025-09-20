@@ -1,0 +1,16 @@
+{
+  "name": "maqueta",
+  "version": "1.0.0",
+  "description": "Problema de maquetación",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass scss:css",
+    "build-dev": "sass --watch scss:css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gonzalo Tejada",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.0"
+  }
+}

@@ -1,0 +1,39 @@
+@use './utilities/functions' as *;
+@import 'global.css';
+@import 'layout.css';
+@import "variables.css";
+
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+}
+
+.layout-column {
+    width: 100%;
+    border: 1px solid var(--primary-light-color);
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (min-width: get-breakpoint("sm")) {
+    .layout-column {
+        width: 44%;
+    }
+}
+
+
+@media screen and (min-width: get-breakpoint("xl")) {
+
+    .layout-column {
+        width: 30%;
+    }
+}
