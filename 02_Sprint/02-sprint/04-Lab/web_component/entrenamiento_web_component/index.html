@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Alert Demo</title>
+    <script type="module" src="app-alert.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .demo-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #f5f5f5;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Component App Alert - Demo</h1>
+    
+    <div class="demo-section">
+        <h2>Alertas estáticas</h2>
+        <app-alert type="success" message="Operación completada correctamente" open></app-alert>
+        <app-alert type="info" message="Esta es una información importante" open></app-alert>
+        <app-alert type="warning" message="Advertencia: acción requerida" open></app-alert>
+        <app-alert type="error" message="Error: ha ocurrido un problema" open></app-alert>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Alertas dinámicas</h2>
+        <button onclick="showAlert('success')">Mostrar Success</button>
+        <button onclick="showAlert('info')">Mostrar Info</button>
+        <button onclick="showAlert('warning')">Mostrar Warning</button>
+        <button onclick="showAlert('error')">Mostrar Error</button>
+        <button onclick="hideAllAlerts()">Ocultar Todas</button>
+        
+        <div id="dynamic-alerts"></div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Cambio dinámico de atributos</h2>
+        <app-alert id="changing-alert" type="info" message="Este mensaje cambiará..." open></app-alert>
+        <button onclick="changeAlert()">Cambiar Alerta</button>
+    </div>
+
+    <script>
+        let alertCount = 0;
+        
+        function showAlert(type) {
+            alertCount++;
+            const messages = {
+                success: `Éxito #${alertCount}: Operación completada`,
+                info: `Info #${alertCount}: Nuevo mensaje informativo`,
+                warning: `Advertencia #${alertCount}: Atención requerida`,
+                error: `Error #${alertCount}: Ha ocurrido un problema`
+            };
+            
+            const alert = document.createElement('app-alert');
+            alert.type = type;
+            alert.message = messages[type];
+            alert.open = true;
+            
+            alert.addEventListener('alert-close', () => {
+                alert.remove();
+            });
+            
+            document.getElementById('dynamic-alerts').appendChild(alert);
+        }
+        
+        function hideAllAlerts() {
+            document.querySelectorAll('app-alert').forEach(alert => {
+                alert.open = false;
+            });
+        }
+        
+        function changeAlert() {
+            const alert = document.getElementById('changing-alert');
+            const types = ['success', 'info', 'warning', 'error'];
+            const messages = [
+                '¡Cambio exitoso!',
+                'Información actualizada',
+                '¡Cuidado con los cambios!',
+                'Error en la modificación'
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * types.length);
+            alert.type = types[randomIndex];
+            alert.message = messages[randomIndex];
+            alert.open = true;
+        }
+        
+        // Demo automático
+        setTimeout(() => {
+            showAlert('info');
+        }, 1000);
+        
+        setTimeout(() => {
+            showAlert('warning');
+        }, 3000);
+    </script>
+</body>
+</html>
