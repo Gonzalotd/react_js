@@ -1,0 +1,29 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+
+.wrapper2 {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px
+}
+
+.box1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    display: subgrid;
+  }
+
+.box2 {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
