@@ -207,17 +207,17 @@ class TimerComponent extends LitElement {
                             class="timer__time timer__hora"
                             .value="${this.hora}"
                             placeholder="00"
-                            @input="${(e) => this.hora = e.target.value}" /> :
+                            @input="${(e) => this._validateTimeInput(e)}" /> :
                         <input
-                            class="timer__time timer__hora"
+                            class="timer__time timer__minutos"
                             .value="${this.minutos}"
                             placeholder="00"
-                            @input="${(e) => this.minutos = e.target.value}" /> :
+                            @input="${(e) => this._validateTimeInput(e)}" /> :
                         <input
-                            class="timer__time timer__hora"
+                            class="timer__time timer__segundos"
                             .value="${this.segundos}"
                             placeholder="00"
-                            @input="${(e) => this.segundos = e.target.value}" />
+                            @input="${(e) => this._validateTimeInput(e)}" />
                     </div>
 
                     <div class="timer__buttons">
@@ -225,7 +225,8 @@ class TimerComponent extends LitElement {
                             ${this.pause}
                         </button>
                         
-                        <button class="timer__cta timer__play">
+                        <button class="timer__cta timer__play"
+                                @click=${this._btnPlay}>
                             ${this.play}
                         </button>
                         
@@ -242,9 +243,36 @@ class TimerComponent extends LitElement {
     }
     
     _handleReset() {
-        this.hora = '';
-        this.minutos = '';
-        this.segundos = '';
+
+        const inputs = this.shadowRoot.querySelectorAll('.timer__time');
+        inputs.forEach(input => {
+            input.value = "";
+        });
+
+    }
+
+    _btnPlay(e) {
+        console.log("click en play");
+        const hora = 1;
+
+        if ( this.hora == "" && this.minutos == "" && this.segundos == "") {
+            this.hora = `0${hora}`
+            console.log("hora", this.hora)
+        }
+        
+    }
+
+    _validateTimeInput(e) {
+        let input = e.target.value;
+
+        input = input.replace(/[^\d]/g, '');
+
+        if (input.length > 2) {
+            input = input.slice(0, 2);
+        }
+
+        this.value = input;
+        e.target.value = this.value;
     }
 }
 
