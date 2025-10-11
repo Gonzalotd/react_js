@@ -190,6 +190,9 @@ class TimerComponent extends LitElement {
         this.pause = "Pause";
         this.play = "Play";
         this.reset = "Reset";
+        this.isRunning = false;
+        this.totalSegundos = 0;
+        this.timerInterval = null;
         this.hora = "";
         this.minutos = "";
         this.segundos = "";
@@ -221,12 +224,13 @@ class TimerComponent extends LitElement {
                     </div>
 
                     <div class="timer__buttons">
-                        <button class="timer__cta timer__pause">
+                        <button class="timer__cta timer__pause"
+                                @click=${this._handlePause}>
                             ${this.pause}
                         </button>
                         
                         <button class="timer__cta timer__play"
-                                @click=${this._btnPlay}>
+                                @click=${this._handlePlay}>
                             ${this.play}
                         </button>
                         
@@ -243,22 +247,36 @@ class TimerComponent extends LitElement {
     }
     
     _handleReset() {
-
-        const inputs = this.shadowRoot.querySelectorAll('.timer__time');
-        inputs.forEach(input => {
-            input.value = "";
-        });
-
+        this._handlePause();
+        this.isRunning = false;
+        this.hora = "";
+        this.minutos = "";
+        this.segundos = "";
+        this.totalSegundos = 0;
     }
 
-    _btnPlay(e) {
-        console.log("click en play");
-        const hora = 1;
+    _handlePlay() {
+        if (this.isRunning) return;
 
-        if ( this.hora == "" && this.minutos == "" && this.segundos == "") {
-            this.hora = `0${hora}`
-            console.log("hora", this.hora)
-        }
+        console.log("calculate", this.totalSegundos)
+
+        this._calculateTotalSegundos();
+
+        console.log("despues del calculate", this.totalSegundos)
+    
+        if (this.totalSegundos <= 0) return;
+    
+        this.isRunning = true;
+
+        this.timerInterval = setInterval(() => {
+                this.totalSegundos--;
+        
+                this._updateTimeFromTotalSegundos();
+            
+                if (this.totalSegundos <= 0) {
+                    this._handleTimerComplete();
+                }
+            }, 1000);
         
     }
 
@@ -274,6 +292,56 @@ class TimerComponent extends LitElement {
         this.value = input;
         e.target.value = this.value;
     }
+
+    _calculateTotalSegundos() {
+        let horas;
+        let minutos;
+        let segundos;
+
+        const inputHora = this.shadowRoot.querySelector('.timer__hora').value || 0;
+        const inputMinutos = this.shadowRoot.querySelector('.timer__minutos').value || 0;
+        const inputSegundos = this.shadowRoot.querySelector('.timer__segundos').value || 0;
+
+
+        if ( inputHora === 0 && inputMinutos === 0 && inputSegundos === 0) {
+            horas = parseInt(inputHora) || 1;
+            minutos = parseInt(inputMinutos) || 59;
+            segundos = parseInt(inputSegundos) || 59;
+            
+            
+        } else {
+            horas = parseInt(inputHora);
+            minutos = parseInt(inputMinutos);
+            segundos = parseInt(inputSegundos);
+        }
+
+        this.totalSegundos = (horas * 3600) + (minutos * 60) + segundos;
+
+    }
+    
+    _updateTimeFromTotalSegundos() {
+        const horas = Math.floor(this.totalSegundos / 3600);
+        const minutos = Math.floor((this.totalSegundos % 3600) / 60);
+        const segundos = this.totalSegundos % 60;
+
+        this.hora = horas.toString().padStart(2, '0');
+        this.minutos = minutos.toString().padStart(2, '0');
+        this.segundos = segundos.toString().padStart(2, '0');
+    }
+
+    _handlePause() {
+        this.isRunning = false;
+        if (this.timerInterval) {
+          clearInterval(this.timerInterval);
+          this.timerInterval = null;
+        }
+    }
+
+    _handleTimerComplete() {
+        this._handlePause();
+    }
+    
+
 }
 
 customElements.define('timer-component', TimerComponent);
