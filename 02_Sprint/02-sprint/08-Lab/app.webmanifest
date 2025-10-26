@@ -1,0 +1,60 @@
+{
+    "name": "Mi Lista de Tareas",
+    "short_name": "Tareas",
+    "description": "App para Gestionar nuestras tareas diarias",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#2196f3",
+    "background_color": "#f5f5f5",
+    "orientation": "portrait",
+    "categories": ["productivity", "utilities"],
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-maskable.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshots/mobile.png",
+            "sizes": "375x667",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "screenshots/desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Añadir nueva tarea",
+            "short_name": "Nueva",
+            "description": "Añadir una nueva tarea a la lista",
+            "url": "/?new=true",
+            "icons": [
+                {
+                    "src": "icons/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

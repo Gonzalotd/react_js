@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <meta name="theme-color" content="#2196f3">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="icons/icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mi Lista de Tareas</h1>
+            <div id="connection-status" class="offline-indicator">Sin conexión</div>
+        </header>
+        
+        <main>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Nueva tarea..." required>
+                <button type="submit">Añadir</button>
+            </form>
+            
+            <ul id="task-list"></ul>
+        </main>
+        
+        <footer>
+            <button id="install-btn" class="install-btn" style="display: none;">Instalar App</button>
+        </footer>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>
