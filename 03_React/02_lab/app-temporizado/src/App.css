@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.App-header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+}
+.App-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.App-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+.App-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timer-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.timer-display {
+  margin-bottom: 30px;
+}
+.timer-time {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+}
+.timer-details {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+.timer-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.timer-btn {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.timer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.timer-btn:active {
+  transform: translateY(0);
+}
+.timer-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.timer-btn-start {
+  background: #27ae60;
+  color: white;
+}
+.timer-btn-pause {
+  background: #e67e22;
+  color: white;
+}
+.timer-btn-reset {
+  background: #3498db;
+  color: white;
+}
+.timer-btn-clear {
+  background: #e74c3c;
+  color: white;
+  grid-column: 1 / -1;
+}
+.timer-status {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+}
+.timer-status p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+.App-footer {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+  opacity: 0.8;
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+  .timer-container {
+    padding: 20px;
+  }
+  .timer-time {
+    font-size: 3rem;
+  }
+  .timer-controls {
+    grid-template-columns: 1fr;
+  }
+  .timer-details {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
