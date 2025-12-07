@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.App h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.App p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.gallery {
+  padding: 20px;
+}
+
+/* Sección de favoritos */
+.favorites-section {
+  background-color: #fff8e1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.favorites-section h2 {
+  color: #ff9800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.favorite-image {
+  border: 3px solid #ff9800;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  width: 200px;
+}
+
+.favorite-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.favorite-image p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Álbumes */
+.album {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.album h3 {
+  color: #2196f3;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.album-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Imágenes individuales */
+.image-container {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.image-container img.favorite {
+  border: 3px solid #ff4081;
+}
+
+.image-container button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.image-container button:hover {
+  background-color: #1976d2;
+}
+
+.image-container p {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
